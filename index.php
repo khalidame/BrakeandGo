@@ -10,7 +10,7 @@
 
 <body>
 
-    <div class="page-header" id="wrapper">
+    <div class="page-header">
 
         <?php require_once 'includes/header.php' ?>
     </div>
