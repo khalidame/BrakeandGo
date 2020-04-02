@@ -1,5 +1,4 @@
-
-
+<?php require_once 'includes/functions.php' ?>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -8,22 +7,25 @@
 
 </head>
 
-
-
-
-  <div class="container-fluid">
+  <div class="container">
 
     <ul class="nav justify-content-end">
       <li class="nav-item">
-        <a class="nav-link active" href="login.php">Login|Sign up</a>
+      <?php if (isLoggedIn()): ?>
+        <div class="nav-link">
+            <span>Hi, <?=$_SESSION['username']?>!</span>
+            <a href="logout.php">Logout</a>
+      </div>
+            <?php else: ?>
+              <a class="nav-link" href="login.php"> Login</a>
+              <?php endif; ?>  
       </li>
+
       <li class="nav-item">
         <a class="nav-link" href="#">Your Cart</a>
       </li>
 
     </ul>
-
-
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center">
       <a class="navbar-brand" href="index.php">Logo</a>
@@ -49,3 +51,4 @@
       </div>
     </nav>
   </div>
+</html>
