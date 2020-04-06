@@ -1,0 +1,130 @@
+body {
+  font-family: lucida grande, tahoma, verdana, arial, sans-serif;
+}
+body,
+html {
+  height: 98%;
+}
+
+.home-text p {
+  font-size: 24px;
+}
+.container-body {
+  position: relative;
+  top: 35%;
+  transform: translateY(-35%);
+}
+
+.page-body {
+  background-repeat: no-repeat;
+  background-size: auto;
+}
+
+h1 {
+  color: blue;
+}
+
+.home-carousel,
+.marketing {
+  margin-top: 30px;
+}
+
+@media only screen and (max-width: 960px) {
+  .home-text p {
+    margin-top: 20px;
+    font-size: 16px;
+  }
+  .login-link {
+    width: 100%;
+  }
+  .marketing .div-center {
+    border-right: 0;
+    border-left: 0;
+  }
+}
+
+.navbar-brand img {
+  width: 110px;
+  padding: 0;
+}
+
+a.navbar-brand {
+  padding: 0;
+}
+
+/* MARKETING CONTENT
+-------------------------------------------------- */
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.marketing h2 {
+  font-weight: 400;
+}
+.marketing .col-lg-4 p {
+  margin-right: 0.75rem;
+  margin-left: 0.75rem;
+}
+
+.rounded-circle {
+  border-radius: 50% !important;
+}
+
+/* Featurettes
+------------------------- */
+
+.featurette-divider {
+  margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.05rem;
+}
+
+.marketing .row .col-lg-4 {
+  background-color: #f8f9fa !important;
+}
+
+.marketing .row {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.marketing .div-center {
+  border-right: 5px solid white;
+  border-left: 5px solid white;
+}
+
+.nav {
+  color: white;
+  font-size: 20px;
+}
+
+.border-color {
+  color: white;
+  font-size: 20px;
+}
+
+@media only screen and (max-width: 960px) {
+.home-text p {
+  margin-top: 20px;
+  font-size: 16px;
+}
+}
+
+@media only screen and (max-width: 575px) {
+.desktop {
+  display: none;
+}
+}
+
+@media only screen and (min-width: 576px) {
+.mobile {display: none;
+}
+}
+

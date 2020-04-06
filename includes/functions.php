@@ -27,17 +27,17 @@ function regSubmit() {
     // get form data
     $first_name = $_POST['First_name']; 
     $last_name = $_POST['Last_name']; 
-    $phone = $_POST['Phone'];
+    // $phone = $_POST['Phone'];
     $email = $_POST['Email'];
     $username = $_POST['username'];
     $password = $_POST['password'];
     $confirm = $_POST['confirm'];
 
 
-     //validate
-    // if (empty($first_name) || empty($last_name) || empty($username) || empty($password) || empty($confirm)) {
-    //     return 'All fields required';
-    //  }
+     // validate
+     if (empty($first_name) || empty($last_name) || empty($username) || empty($password) || empty($confirm)) {
+        return 'All fields required';
+     }
 
 
     if ($password !== $confirm) {
@@ -46,8 +46,8 @@ function regSubmit() {
 
     $hash = password_hash($password, PASSWORD_BCRYPT);
 
-    $sql = "INSERT INTO customer(First_name, Last_name, Phone, Email, username, password) 
-        VALUES( '$first_name', '$last_name','$phone', '$email', '$username', '$hash')";
+    $sql = "INSERT INTO customer(First_name, Last_name, Email, username, password) 
+        VALUES( '$first_name', '$last_name', '$email', '$username', '$hash')";
     
     $conn = getConnection();
     $result = $conn->query($sql);

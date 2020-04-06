@@ -3,9 +3,9 @@
 
 
 <div class="container-fluid">
-    <div class="row w-75">
-        <div class="col w-50">
-            <form action="reg-submit.php" method="post" class="text-center border border-light p-5">
+    <div class="row justify-content-center">
+        <div class="col-sm-12 col-md-8">
+            <form action="reg-submit.php" method="post" class="text-center border border-light px-3 py-3">
 
                 <p class="h4 mb-4">Sign up</p>
 
@@ -20,7 +20,7 @@
 
                 <input type="email" id="Email" name="Email" class="form-control mb-4" placeholder="E-mail*">
 
-                <input type="tel" id="Phone" name='phone'  class="form-control mb-4" placeholder="Phone number*">
+                <!-- <input type="tel" id="Phone" name='phone'  class="form-control mb-4" placeholder="Phone number*"> -->
 
                 <input type="text" id="username" name="username" class="form-control mb-4" placeholder="Username*">
 
@@ -32,8 +32,10 @@
                         <input type="password" id="confirm" name="confirm" class="form-control mb-4" placeholder="Confirm password*">
                     </div>
                 </div>
-                <button class="btn btn-info my-4 btn-block" type="submit">Sign up</button>
+                <button class="btn btn-primary btn-block my-4" type="submit">Sign up</button>
             </form>
+            <button class="btn btn-block border border-color my-4">Forgot Username</button>
+            <button class="btn btn-block border border-color my-4">Forget Password</button>
         </div>
     </div>
 </div>
