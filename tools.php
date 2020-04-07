@@ -17,8 +17,7 @@
             <div class="row home-body justify-content-center pt-5">
 
                 <p>This page is not availabe yet</p>
-                <p>test</p>
-
+            
             </div>
         </div>
     </div>
