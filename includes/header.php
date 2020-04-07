@@ -46,7 +46,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="#">Your Cart</a>
+          <a class="nav-link" href="#">Cart</a>
         </li>
     </ul>
     </nav>
