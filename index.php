@@ -14,7 +14,6 @@
     <link rel="stylesheet" type="text/scss" href="Styles/Stylesheet.scss" />
 </head>
 
-
 <body>
 <div class="container-fluid">
         <?php require_once 'includes/header.php' ?>
