@@ -1,3 +1,19 @@
+
+<?php require_once 'includes/functions.php' ; ?>
+<?php 
+    if ( isset($_SESSION["reset_pwd_username"]) && !empty($_SESSION["reset_pwd_username"])){
+      
+      $username = $_SESSION["reset_pwd_username"];
+      
+    }
+    else
+    {
+      $_SESSION['validation_errors'] = 'Session is invalid';
+        header('Location: reset_pwd_step_1.php');
+        exit;
+    }
+?>     
+
 <!DOCTYPE html>
 <html>
 
@@ -30,40 +46,34 @@
                   }
               ?>        
       </div>
+                  
+      <form action="reset_pwd_submit.php" method="post" class="text-center border border-light px-2 pt-3">
 
-      <form action="login-submit.php" method="post" class="text-center border border-light px-2 pt-3">
+        <p class="h4 mb-4">Reset password - step 3/3</p>
 
-        <p class="h4 mb-4">Sign in</p>
-
-        <input type="text" id="username" name="username" value="<?= isset($_SESSION['reset_username_username']) ? $_SESSION['reset_username_username']: '';?>" class="form-control mb-4" placeholder="Username*">
-
-        <input type="password" id="password" name="password" class="form-control mb-4" placeholder="Password*">
-
+        <input type="text" id="username" name="username" class="form-control mb-4" value="<?php echo $username ?>" disabled>
+        <div class="form-row mb-4">
+            <div class="col">
+                <input type="password" id="password" name="password" class="form-control mb-4" placeholder="Password*" required>
+            </div>
+            <div class="col">
+                <input type="password" id="confirm" name="confirm" class="form-control mb-4" placeholder="Confirm password*" required>
+            </div>
+            <input type="hidden" id="username" name="username" class="form-control mb-4" value="<?php echo $username ?>">
+        </div>
         <div class="form-row mb-4">                 
             <?php 
                 if ( isset($_SESSION['validation_errors']) && !empty($_SESSION['validation_errors'])){
                     echo '<div class="col alert alert-danger"><span class="warning">';
-                    echo $_SESSION['validation_errors'];
+                    print_r($_SESSION['validation_errors']);
                     echo '</span></div>';
                     cleanUpSession();
                 }
             ?>                               
         </div>
 
-        <button class="btn btn-primary my-4 btn-block" type="submit">Sign in</button>
-        <p>New to Brake & Go?<a href="registration.php"> Click here</a> to Register</p>
+        <button class="btn btn-primary my-4 btn-block" type="submit">Reset password</button>
       </form>
-      
-      <div class="row justify-content-center px-3">
-        
-          <button class="btn border border-color mb-3 mr-2">
-            <a href="reset_username_step_1.php">Forgot Username</a>    
-          </button>
-          <button class="btn border border-color mb-3">
-            <a href="reset_pwd_step_1.php">Forget Password</a>           
-          </button>
-
-      </div>
     </div>
   </div>
 </div>

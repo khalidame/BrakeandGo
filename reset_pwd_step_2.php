@@ -1,3 +1,32 @@
+
+<?php require_once 'includes/functions.php' ; ?>
+<?php 
+    if ( isset($_GET["username"]) && !empty($_GET["username"]) && isset($_GET["email"]) && !empty($_GET["email"])){
+      
+      $username = $_GET["username"];
+      $email = $_GET["email"];
+
+      $msg = getsecurityQuestion($_GET["username"],$_GET["email"]);
+
+      if(isset($msg) && !empty($msg)){
+        $_SESSION['validation_errors'] = $msg;
+        header('Location: reset_pwd_step_1.php');
+        exit;
+      }
+    }
+    else if(!isset($_SESSION['validation_errors']) && empty($_SESSION['validation_errors']))
+    {
+      $_SESSION['validation_errors'] = 'All fields are required';
+        header('Location: reset_pwd_step_1.php');
+        exit;
+    }
+    else{
+
+      $username = $_SESSION['reset_pwd_username'];
+      $email = $_SESSION['reset_pwd_email'];
+    }
+?>     
+
 <!DOCTYPE html>
 <html>
 
@@ -30,15 +59,21 @@
                   }
               ?>        
       </div>
+                  
+      <form action="reset_pwd_submit.php" method="post" class="text-center border border-light px-2 pt-3">
 
-      <form action="login-submit.php" method="post" class="text-center border border-light px-2 pt-3">
+        <p class="h4 mb-4">Reset password - step 2/3</p>
 
-        <p class="h4 mb-4">Sign in</p>
 
-        <input type="text" id="username" name="username" value="<?= isset($_SESSION['reset_username_username']) ? $_SESSION['reset_username_username']: '';?>" class="form-control mb-4" placeholder="Username*">
-
-        <input type="password" id="password" name="password" class="form-control mb-4" placeholder="Password*">
-
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon3">Your question : </span>
+          </div>
+          <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" disabled value="<?php echo $_SESSION['security_question'] ?>">
+        </div>
+        <input type="text" id="security_answer" name="security_answer" class="form-control mb-4" placeholder="Enter your asnwer*">
+        <input type="hidden" id="username" name="username" class="form-control mb-4" value="<?php echo $username ?>">
+        <input type="hidden" id="email" name="email" class="form-control mb-4" value="<?php echo $email ?>">
         <div class="form-row mb-4">                 
             <?php 
                 if ( isset($_SESSION['validation_errors']) && !empty($_SESSION['validation_errors'])){
@@ -50,7 +85,7 @@
             ?>                               
         </div>
 
-        <button class="btn btn-primary my-4 btn-block" type="submit">Sign in</button>
+        <button class="btn btn-primary my-4 btn-block" type="submit">Next</button>
         <p>New to Brake & Go?<a href="registration.php"> Click here</a> to Register</p>
       </form>
       
@@ -60,9 +95,9 @@
             <a href="reset_username_step_1.php">Forgot Username</a>    
           </button>
           <button class="btn border border-color mb-3">
-            <a href="reset_pwd_step_1.php">Forget Password</a>           
+            <a href="login.php">Log in</a>           
           </button>
-
+       
       </div>
     </div>
   </div>

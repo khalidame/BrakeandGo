@@ -31,13 +31,13 @@
               ?>        
       </div>
 
-      <form action="login-submit.php" method="post" class="text-center border border-light px-2 pt-3">
+      <form action="reset_pwd_step_2.php?" method="get" class="text-center border border-light px-2 pt-3">
 
-        <p class="h4 mb-4">Sign in</p>
+        <p class="h4 mb-4">Reset password - step 1/3</p>
 
-        <input type="text" id="username" name="username" value="<?= isset($_SESSION['reset_username_username']) ? $_SESSION['reset_username_username']: '';?>" class="form-control mb-4" placeholder="Username*">
+        <input type="text" id="username" name="username" value="<?= isset($_SESSION['username']) ? $_SESSION['username']: '';?>" class="form-control mb-4" placeholder="Username*">
 
-        <input type="password" id="password" name="password" class="form-control mb-4" placeholder="Password*">
+        <input type="email" id="email" name="email" class="form-control mb-4" placeholder="E-mail*">
 
         <div class="form-row mb-4">                 
             <?php 
@@ -50,7 +50,7 @@
             ?>                               
         </div>
 
-        <button class="btn btn-primary my-4 btn-block" type="submit">Sign in</button>
+        <button class="btn btn-primary my-4 btn-block" type="submit">Next</button>
         <p>New to Brake & Go?<a href="registration.php"> Click here</a> to Register</p>
       </form>
       
@@ -60,9 +60,9 @@
             <a href="reset_username_step_1.php">Forgot Username</a>    
           </button>
           <button class="btn border border-color mb-3">
-            <a href="reset_pwd_step_1.php">Forget Password</a>           
+            <a href="login.php">Log in</a>           
           </button>
-
+       
       </div>
     </div>
   </div>
